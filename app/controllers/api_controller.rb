@@ -5,9 +5,10 @@ class ApiController < ApplicationController
   def mailinglist
     require 'json'
 
-    json = JSON.parse(params[:data])
-    if !find_mailing_list_by_email(json['contact']['email'])
-      result = MailingList.new(:first_name => json['contact']['first_name'], :last_name => json['contact']['last_name'], :email_address => json['contact']['email'], :phone => json['contact']['phone'])
+
+    data = Rack::Utils.parse_nested_query(params[:query])
+    if !find_mailing_list_by_email(data['email'])
+      result = MailingList.new(:first_name => data['fname'], :last_name => data['lname'], :email_address => data['email'], :phone => data['phone'])
       result.save
     end
   end
