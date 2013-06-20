@@ -58,4 +58,5 @@ Smilecdn::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   match '/api/redeem/:data' => "api#redeem"
+  match '/api/mailinglist/:data' => "api#mailinglist"
 end
