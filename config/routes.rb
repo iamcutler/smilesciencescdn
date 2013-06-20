@@ -57,6 +57,6 @@ Smilecdn::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  match '/api/redeem/:data' => "api#redeem"
-  match '/api/mailinglist/:data' => "api#mailinglist", :via => :post
+  match '/api/redeem/:data' => "api#redeem", constraints: { data: /\w+\.[\w\.]+/ }, :via => :post
+  match '/api/mailinglist/:data' => "api#mailinglist", constraints: { data: /\w+\.[\w\.]+/ }, :via => :post
 end
