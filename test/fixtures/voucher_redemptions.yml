@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: John
+  last_name: Doe
+  email: john@211enterprises.com
+  phone: 661-600-2030
+  site_purchased: groupon.com
+  quantity: 1
+  voucher_number_1: 123456
+  voucher_number_2:
+  voucher_number_3:
+  voucher_number_4:
+  voucher_number_5:
+  voucher_number_6:
+  products: "{ 'rxpen' => 1 }"
+  address: "28494 Westinghouse Place #211"
+  city: Valencia
+  state: CA
+  zip_code: 91355
+  country: USA
+  comments: "Testing redemptions"

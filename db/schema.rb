@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620210024) do
+ActiveRecord::Schema.define(:version => 20130621005120) do
 
   create_table "mailing_lists", :force => true do |t|
     t.string   "first_name"
@@ -20,6 +20,30 @@ ActiveRecord::Schema.define(:version => 20130620210024) do
     t.string   "phone"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "voucher_redemptions", :force => true do |t|
+    t.string   "first_name",                             :null => false
+    t.string   "last_name",                              :null => false
+    t.string   "email",                                  :null => false
+    t.string   "phone"
+    t.string   "site_purchased",                         :null => false
+    t.string   "quantity",                               :null => false
+    t.string   "voucher_number_1",                       :null => false
+    t.string   "voucher_number_2"
+    t.string   "voucher_number_3"
+    t.string   "voucher_number_4"
+    t.string   "voucher_number_5"
+    t.string   "voucher_number_6"
+    t.text     "products",                               :null => false, :limit => 2147483647
+    t.string   "address",                                :null => false
+    t.string   "city",                                   :null => false
+    t.string   "state",                                  :null => false
+    t.string   "zip_code",                               :null => false
+    t.string   "country",                                :null => false
+    t.text     "comments",                               :limit => 2147483647
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
 end
