@@ -3,12 +3,14 @@ class ApiController < ApplicationController
   end
 
   def mailinglist
-    require 'json'
-
-
     data = Rack::Utils.parse_nested_query(params[:query])
-    if !find_mailing_list_by_email(data['email'])
-      result = MailingList.new(:first_name => data['fname'], :last_name => data['lname'], :email_address => data['email'], :phone => data['phone'])
+    first_name = data['contact']['first_name']
+    last_name = data['contact']['last_name']
+    email = data['contact']['email']
+    phone = data['contact']['phone']
+
+    if !find_mailing_list_by_email(email)
+      result = MailingList.new(:first_name => first_name, :last_name => last_name, :email_address => email, :phone => phone)
       result.save
     end
   end
