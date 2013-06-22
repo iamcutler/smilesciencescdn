@@ -2,24 +2,21 @@ class ApiController < ApplicationController
   helper_method :check_existing_voucher_numbers, :saveRedemption
 
   def redeem
+    headers['Access-Control-Allow-Origin'] = "*"
     data = Rack::Utils.parse_nested_query(params[:query])
-    flag = 0
-    response = '{ response : "An error has occurred. Please try again." }'
+    response = '{ "response" : "An error has occurred. Please try again." }'
 
     #If any voucher number is already used
     if check_existing_voucher_numbers(data)
-      response = '{ response : "One of the voucher numbers you entered has already been used. Please double check your vouchers before continuing."}'
-      flag += 1
+      response = '{ "response" : "One of the voucher numbers you entered has already been used. Please double check your vouchers before continuing."}'
     else
       #Save redemption after validation
       if saveRedemption(data)
-        response = '{ response : "success" }'
+        response = '{ "response" : "success" }'
       end
     end
 
-    respond_to do |format|
-      format.html { render :text => response }
-    end
+    render :json => response
   end
 
   def mailinglist
