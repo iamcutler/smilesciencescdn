@@ -4,15 +4,20 @@ class ApiController < ApplicationController
   def redeem
     headers['Access-Control-Allow-Origin'] = "*"
     data = Rack::Utils.parse_nested_query(params[:query])
+    products = data['product']
     response = '{ "response" : "An error has occurred. Please try again." }'
 
     #If any voucher number is already used
     if check_existing_voucher_numbers(data)
       response = '{ "response" : "One of the voucher numbers you entered has already been used. Please double check your vouchers before continuing."}'
     else
-      #Save redemption after validation
-      if saveRedemption(data)
-        response = '{ "response" : "success" }'
+      if products
+        #Save redemption after validation
+        if saveRedemption(data)
+          response = '{ "response" : "success" }'
+        end
+      else
+        response = '{ "response" : "Please select at least one product purchased" }'
       end
     end
 
