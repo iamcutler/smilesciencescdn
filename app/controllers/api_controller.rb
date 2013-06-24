@@ -80,6 +80,7 @@ class ApiController < ApplicationController
         u.voucher_number_6 = voucher['voucher_number_6']
         u.products = products.to_s
         u.address = contact['address']
+        u.address2 = contact['address2']
         u.city = contact['city']
         u.state = contact['state']
         u.zip_code = contact['zip_code']
