@@ -1,2 +1,29 @@
-<h1>Redeem#index</h1>
-<p>Find me in app/views/redeem/index.html.erb</p>
+<%= addStylesheet('datepicker.css') %>
+
+<div class="container">
+  <h1>Export Voucher Redemptions</h1>
+  <div class="well">
+    <div class="row-fluid">
+      <div class="span6">
+        <label><b>Start Date:</b></label>
+        <div class="input-append date" id="dp1" data-date="<%= @todayPickerFormat %>" data-date-format="yyyy-mm-dd" style="width:100%">
+          <input type="text" name="startDate" class="span11" value="<%= @todayPickerFormat %>" readonly />
+          <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+      </div>
+      <div class="span6">
+        <label><b>End Date:</b></label>
+        <div class="input-append date" id="dp2" data-date="<%= @todayPickerFormat %>" data-date-format="yyyy-mm-dd" style="width:100%">
+          <input type="text" name="endDate" class="span11" value="<%= @todayPickerFormat %>" readonly />
+          <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions" style="margin-bottom: 0; padding-bottom: 0;">
+      <button class="btn btn-primary">Export</button>
+    </div>
+  </div>
+</div>
+
+<%= additionalJS('bootstrap-datepicker.js') %>
+<%= additionalJS('redeem.js') %>
