@@ -62,5 +62,5 @@ Smilecdn::Application.routes.draw do
   match '/api/mailinglist/:query' => "api#mailinglist", :constraints  => { :query => /[^\/]+/ }, :via => :post
 
   #Voucher redemptions
-  match '/redeem' => "redeem/index", :as => :redeem
+  match '/redeem' => "redeem#index", :as => :redeem
 end
