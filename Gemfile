@@ -27,7 +27,7 @@ end
 gem 'jquery-rails'
 
 #Exporting to google drive
-gem 'google_drive'
+#gem 'google_drive'
 
 group :development, :test do
   #gem 'rspec-rails'
