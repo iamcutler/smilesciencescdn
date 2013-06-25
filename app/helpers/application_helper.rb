@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def pageTitle(title)
+    content_for :title, title.to_s
+  end
+
   def addStylesheet(*files)
     content_for(:head) { stylesheet_link_tag(*files) }
   end
