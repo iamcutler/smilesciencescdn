@@ -12,7 +12,9 @@ gem 'json'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'less-rails'
+  gem 'sass-rails'
+  gem 'compass'
+  gem 'bootstrap-sass'
   gem 'execjs'
   gem 'therubyracer'
 
