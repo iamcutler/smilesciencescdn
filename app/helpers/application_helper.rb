@@ -1,13 +1,13 @@
 module ApplicationHelper
-  def addStylesheet(style)
-    content_for :head do
-      "<link type=\"text/css\" href=\"/assets/#{style}\" rel=\"stylesheet\" />".html_safe
-    end
+  def addStylesheet(*files)
+    content_for(:head) { stylesheet_link_tag(*files) }
   end
 
-  def additionalJS(script)
-    content_for :additional_javascript do
-      "<script type=\"text/javascript\" src=\"/assets/#{script}\"></script>".html_safe
-    end
+  def additionalJS(*files)
+    content_for(:additional_scripts) { javascript_include_tag(*files) }
+  end
+
+  def line_break(string)
+    string.gsub("\n", '<br/>')
   end
 end
