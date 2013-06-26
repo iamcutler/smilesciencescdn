@@ -9,7 +9,7 @@ class RedeemController < ApplicationController
     require 'google_drive'
 
     #fetch model data
-    result = VoucherRedemption.all
+    result = VoucherRedemption.where('created_at >= ? and created_at <= ?', params[:start], params[:end])
     #Spreadsheet key
     key = "0AgUaj0k6ZzktdDNaOEJzV1JlZjFhWmVGMmJwVnJRZWc"
 
@@ -24,7 +24,7 @@ class RedeemController < ApplicationController
     #Dumps all cells.
     for row in 1..ws.num_rows
       for col in 1..ws.num_cols
-        p ws[row, col]
+        ws[row, col] = ""
       end
     end
 
@@ -60,6 +60,8 @@ class RedeemController < ApplicationController
       ws[count, 18] = voucher.zip_code
       ws[count, 19] = voucher.country
       ws[count, 20] = voucher.comments
+      ws[count, 21] = voucher.created_at
+      ws[count, 22] = voucher.updated_at
       count += 1
     end
 
@@ -68,7 +70,8 @@ class RedeemController < ApplicationController
       # Reloads the worksheet to get changes by other clients.
       ws.reload()
       #Redirect to redeem and show successfully notice
-      redirect_to :redeem, :notice => 'The spreadsheet exported successfully. Please check your google drive.'
+      googleLink = "https://docs.google.com/spreadsheet/ccc?key=#{key}#gid=0"
+      redirect_to :redeem, :notice => "The spreadsheet exported successfully. Please check the google drive. <a href=\"#{googleLink}\" target=\"_blank\">Click Here.</a>".html_safe
     else
       redirect_to :redeem, :notice => 'A error occurred. Please try again.'
     end
