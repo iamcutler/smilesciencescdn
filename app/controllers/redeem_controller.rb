@@ -71,7 +71,7 @@ class RedeemController < ApplicationController
       ws.reload()
       #Redirect to redeem and show successfully notice
       googleLink = "https://docs.google.com/spreadsheet/ccc?key=#{key}#gid=0"
-      redirect_to :redeem, :notice => "The spreadsheet exported successfully. Please check the google drive. <a href=\"#{googleLink}\" target=\"_blank\">Click Here.</a>".html_safe
+      redirect_to :redeem, :notice => "The spreadsheet exported successfully (#{result.count}). Please check the google drive. <a href=\"#{googleLink}\" target=\"_blank\">Click Here.</a>".html_safe
     else
       redirect_to :redeem, :notice => 'A error occurred. Please try again.'
     end
