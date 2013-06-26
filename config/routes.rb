@@ -63,5 +63,5 @@ Smilecdn::Application.routes.draw do
 
   #Voucher redemptions
   match '/redeem' => "redeem#index", :as => :redeem
-  match '/redeem/export/:start/:end' => "redeem#export"
+  match '/redeem/export/:query' => "redeem#export"
 end
