@@ -53,6 +53,7 @@ end
 
 # Deploy with Capistrano
 gem 'capistrano'
+gem 'capistrano-ext'
 
 # To use debugger
 # gem 'ruby-debug'
