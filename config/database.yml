@@ -31,6 +31,16 @@ test:
   password:
   socket: /tmp/mysql.sock
 
+staging:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: sscdn2_staging
+  pool: 5
+  username: sscdn2_staging
+  password: {.oqv@&fO6WF
+  socket: /tmp/mysql.sock
+
 production:
   adapter: mysql2
   encoding: utf8
