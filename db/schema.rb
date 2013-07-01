@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624193957) do
+ActiveRecord::Schema.define(:version => 20130701040049) do
 
   create_table "mailing_lists", :force => true do |t|
     t.string   "first_name"
@@ -45,6 +44,14 @@ ActiveRecord::Schema.define(:version => 20130624193957) do
     t.text     "comments",         :limit => 2147483647
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+  end
+
+  create_table "vouchers", :force => true do |t|
+    t.string   "voucher_number",                :null => false
+    t.string   "site_source"
+    t.integer  "redeemed",       :default => 0, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end
