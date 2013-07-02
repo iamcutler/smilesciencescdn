@@ -20,7 +20,6 @@
           <tr>
             <td><%= voucher.voucher_number %></td>
             <td>
-              <%= link_to 'Show', voucher, :class => 'btn btn-primary' %>
               <%= link_to 'Edit', edit_voucher_path(voucher), :class => 'btn btn-info' %>
               <%= link_to 'Destroy', voucher, :class => 'btn btn-danger', :method => :delete, :data => { :confirm => 'Are you sure?' } %>
             </td>
