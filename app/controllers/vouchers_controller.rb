@@ -80,4 +80,8 @@ class VouchersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #Voucher Bulk Uploading
+  def upload
+  end
 end

@@ -51,7 +51,9 @@ Smilecdn::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#index'
 
+  #Vouchers
   resources :vouchers
+  match '/voucher/upload' => "vouchers#upload", :as => :uploadVouchers
 
   #API
   match '/api/redeem/:query' => "api#redeem", :constraints  => { :query => /[^\/]+/ }, :via => :post
