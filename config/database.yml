@@ -38,7 +38,7 @@ staging:
   database: sscdn2_staging
   pool: 5
   username: sscdn2_staging
-  password: {.oqv@&fO6WF
+  password: axoqvACfO6WF
   socket: /tmp/mysql.sock
 
 production:
